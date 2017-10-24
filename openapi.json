@@ -2,14 +2,30 @@
   "openapi": "3.0.0",
   "info": {
     "title": "api-scheduling",
-    "description": "",
+    "description": "Scheduling Module - API Strructure",
+    "contact": {
+      "name": "Bookiteasy",
+      "url": "www.bookiteasy.com",
+      "email": "techinfo@bookiteasy.com"
+    },
     "version": "1.0.0"
   },
   "paths": {
     "/agenda": {
+      "get": {
+        "description": "Retrieve All",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "requestBody": {}
+      },
       "post": {
+        "description": "Get One",
         "requestBody": {
-          "description": "Agenda endpoint",
           "content": {
             "application/json": {}
           },
@@ -145,6 +161,13 @@
             "type": "boolean"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "Bookiteasy OAuth2": {
+        "type": "oauth2",
+        "description": "Bookiteasy Security System OAuth2",
+        "flows": {}
       }
     }
   }
