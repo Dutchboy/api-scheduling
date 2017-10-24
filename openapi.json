@@ -6,7 +6,17 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/agenda": {}
+    "/agenda": {
+      "post": {
+        "requestBody": {
+          "description": "Agenda endpoint",
+          "content": {
+            "application/json": {}
+          },
+          "required": true
+        }
+      }
+    }
   },
   "components": {
     "schemas": {
