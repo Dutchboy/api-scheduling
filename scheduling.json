@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "api-scheduling",
-    "description": "Scheduling Module - API Strructure",
+    "description": "Scheduling Module - API Structure",
     "contact": {
       "name": "",
       "url": "",
