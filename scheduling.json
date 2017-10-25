@@ -10,7 +10,12 @@
     },
     "version": "1.0.1"
   },
-  "paths": {
+  "servers": [
+    {
+      "url": "https://api.bookiteasy.com/scheduling",
+      "description": "Public API"
+    }
+  ],  "paths": {
     "/agenda": {
       "get": {
         "summary": "List Agendas",
