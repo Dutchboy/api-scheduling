@@ -8,14 +8,15 @@
       "url": "www.bookiteasy.com",
       "email": "noreply@bookiteasy.com"
     },
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "servers": [
     {
       "url": "https://api.bookiteasy.com/scheduling",
       "description": "Public API"
     }
-  ],  "paths": {
+  ],
+  "paths": {
     "/agenda": {
       "get": {
         "summary": "List Agendas",
