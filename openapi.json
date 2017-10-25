@@ -13,6 +13,7 @@
   "paths": {
     "/agenda": {
       "get": {
+        "summary": "List Agendas",
         "description": "Retrieve All",
         "responses": {
           "200": {
@@ -24,6 +25,7 @@
         "requestBody": {}
       },
       "post": {
+        "summary": "Create Agenda",
         "description": "Get One",
         "requestBody": {
           "content": {
@@ -32,7 +34,30 @@
           "required": true
         }
       }
-    }
+    },
+    "/agenda/{agendaId}": {
+      "get": {
+        "summary": "Retrieve Agenda"
+      },
+      "put": {
+        "summary": "Update Agenda"
+      },
+      "delete": {
+        "summary": "Delete an Agenda"
+      },
+      "parameters": [
+        {
+          "name": "agendaId",
+          "in": "path",
+          "description": "The agendaId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/agenda/{agendaId}/{agendaItemId}": {}
   },
   "components": {
     "schemas": {
