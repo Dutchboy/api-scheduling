@@ -2,11 +2,11 @@
   "openapi": "3.0.0",
   "info": {
     "title": "api-scheduling",
-    "description": "Scheduling Module - API Strructure",
+    "description": "Scheduling Module - API Structure",
     "contact": {
-      "name": "Bookiteasy",
-      "url": "www.bookiteasy.com",
-      "email": "techinfo@bookiteasy.com"
+      "name": "",
+      "url": "",
+      "email": ""
     },
     "version": "1.0.0"
   },
@@ -15,6 +15,12 @@
       "get": {
         "summary": "List Agendas",
         "description": "Retrieve All",
+        "parameters": [
+          {
+            "name": "${client_account}",
+            "in": "query"
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -26,10 +32,14 @@
       },
       "post": {
         "summary": "Create Agenda",
-        "description": "Get One",
+        "description": "Create One",
         "requestBody": {
           "content": {
-            "application/json": {}
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemasAgendaContainer"
+              }
+            }
           },
           "required": true
         }
@@ -37,13 +47,42 @@
     },
     "/agenda/{agendaId}": {
       "get": {
-        "summary": "Retrieve Agenda"
+        "summary": "Retrieve Agenda",
+        "responses": {
+          "200": {}
+        }
       },
       "put": {
-        "summary": "Update Agenda"
+        "summary": "Update Agenda",
+        "responses": {
+          "200": {}
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an AgendaItem in current Agenda",
+        "responses": {
+          "201": {},
+          "400": {},
+          "401": {}
+        },
+        "requestBody": {}
       },
       "delete": {
-        "summary": "Delete an Agenda"
+        "summary": "Delete an Agenda",
+        "responses": {
+          "204": {},
+          "400": {},
+          "401": {}
+        }
       },
       "parameters": [
         {
@@ -54,10 +93,24 @@
           "schema": {
             "type": "string"
           }
+        },
+        {
+          "name": "${client_account}",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
         }
       ]
     },
-    "/agenda/{agendaId}/{agendaItemId}": {}
+    "/agenda/{agendaId}/{agendaItemId}": {
+      "get": {
+        "summary": "get Item"
+      },
+      "put": {
+        "summary": "Create Item"
+      }
+    }
   },
   "components": {
     "schemas": {
@@ -191,8 +244,14 @@
     "securitySchemes": {
       "Bookiteasy OAuth2": {
         "type": "oauth2",
-        "description": "Bookiteasy Security System OAuth2",
-        "flows": {}
+        "description": "Security System OAuth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.bookiteasy.com/auth/realms/public/protocol/openid-connect/token",
+            "refreshUrl": "https://auth.bookiteasy.com/auth/realms/public/protocol/openid-connect/token",
+            "scopes": {}
+          }
+        }
       }
     }
   }
