@@ -4,9 +4,9 @@
     "title": "api-scheduling",
     "description": "Scheduling Module - API Structure",
     "contact": {
-      "name": "",
-      "url": "",
-      "email": ""
+      "name": "Bookiteasy",
+      "url": "www.bookiteasy.com",
+      "email": "noreply@bookiteasy.com"
     },
     "version": "1.0.0"
   },
@@ -37,7 +37,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemasAgendaContainer"
+                "$ref": "#/components/schemas/AgendaContainer"
               }
             }
           },
